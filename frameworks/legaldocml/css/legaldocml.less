@@ -1,0 +1,293 @@
+@namespace an "http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17";
+@import "library.less";
+@import "table.css";
+
+/* Padding inside the page. */
+:root {
+      padding-top:2em;
+      padding-right:1em;
+      padding-left:2em;
+      padding-bottom:5em;
+}
+
+
+@media oxygen AND (min-width:25cm) {
+    /* A gray background */
+    oxy|document {
+      background-color:#fbfbfb;
+    }
+    /* The white page.*/
+    :root{      
+      /* White page */
+      border: 1px solid #c6c6c6;
+      background-color:white;
+      /* Centered*/
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0.25in;
+      margin-bottom: 0.25in;
+      /* Letter */
+      width: 21.59cm; 
+      min-height:10cm; /*27.94cm; would be the letter, but a smaller size avoids large caret jumps*/
+    }
+}
+
+
+an|akomaNtoso {
+    .document(); 
+}
+
+an|* {  
+    .normal();
+}
+
+
+an|p {  
+    .normal();
+}
+
+
+.square() {
+    border:1px solid gray;
+    margin:0.5em;
+    padding:0.25em;
+}
+
+an|meta                 {
+    .folded();
+    .square();
+    &:before {
+        content:"Metadata"; 
+        font-weight:bold;
+    }
+}
+an|coverPage            {.folded();}
+
+
+.metaDate() {
+    &:before(100) {
+        content: oxy_substring(oxy_local-name(), 4) " = " attr(date) " (" attr(name) ")";
+    }
+    & {
+        .editable();
+    }
+    &:-oxy-edit:after(5) {
+        .textfield("  Id:", "eId");
+        .textfield("  Name:", "name");
+        .datePicker("   Date:", "date", "yyyy-mm-dd");
+    }
+    
+}
+
+.metaIdValue() {
+    &:before(100) {
+        content: oxy_substring(oxy_local-name(), 4) " = " attr(value);
+    }
+    & {
+        .editable();
+    }
+    &:-oxy-edit:after(5) {
+        .textfield("  Id:", "eId");
+        .textfield("  Value:", "value");
+    }
+    
+}
+
+an|FRBRdate {
+    .metaDate();
+}
+
+an|FRBRthis,
+an|FRBRuri,
+an|FRBRcountry,
+an|FRBRprescriptive,
+an|FRBRauthoritative{
+    .metaIdValue();
+}
+
+
+
+
+an|tblock {
+    position:relative;    
+} 
+an|tblock > an|p {
+    margin-top:0.5em;
+    margin-bottom:0.5em;
+}
+
+an|preface > an|container {
+    margin-left:25%;
+}
+
+an|preface > an|longTitle {
+    .heading3();
+    text-align:center;
+}
+
+an|chapter > an|num,
+an|chapter > an|heading{
+    text-align:center;
+    font-size:@fsh1;
+    margin:0.5em;
+}
+
+an|article > an|num {
+    font-style:italic;
+}
+an|article > an|num,
+an|article > an|heading{
+    font-family:roman, 'times new roman', times, serif;
+    text-align:center;
+    font-size:@fsh5;
+    margin:0.25em;
+}
+
+an|article {.defineList(paragraph);}
+
+an|mainBody > an|tblock > an|num {
+    .heading1Nr();
+}
+an|mainBody > an|tblock > an|heading{
+    .heading1();  
+} 
+
+an|mainBody > an|tblock > an|tblock > an|num {
+    .heading2Nr();
+    
+}
+an|mainBody > an|tblock > an|tblock > an|heading{
+    .heading2(); 
+}
+
+an|mainBody > an|tblock > an|tblock > an|tblock > an|num {
+    .heading3Nr();
+}
+an|mainBody > an|tblock > an|tblock > an|tblock > an|heading{
+    .heading3(); 
+}
+
+an|recitals     {.defineList(recital);}
+an|blockList    {.defineList(item);}
+an|list         {.defineList(point);}
+
+
+an|rref {
+    display:inline;
+    color:blue;
+}
+
+an|ref,
+an|documentRef{
+    display:inline;
+    color:blue;
+}
+an|ref:before,
+an|documentRef:before {
+    content : url(img/link.png) ;
+    -oxy-link : attr(href) ;
+}
+an|documentRef {
+    content:attr(showAs);
+}
+
+an|img {
+    content : attr(src , url) ;
+}
+
+
+an|fillIn:before {
+    content:"[";
+}
+an|fillIn {
+    display:inline;
+    color:blue;
+}
+an|fillIn:after {
+    content:"]";
+}
+
+an|eol {
+    display:inline;
+    content:"\A";
+}
+an|inline {
+    display:inline;
+}
+
+an|i {
+    display:inline;
+    font-style:italic;
+}
+
+an|b,
+an|location,
+an|docNumber,
+an|docketNumber {
+    display:inline;
+    font-weight:bold;
+}
+
+an|u {
+    display:inline;
+    text-decoration:underline;
+}
+
+an|date,
+an|docDate {
+    display:inline;
+    color:green;
+}
+
+an|term,
+an|process {
+    display:inline;
+    color:navy;
+    font-style:italic;
+}
+an|def {
+    display:inline;
+    color:green;
+}
+
+an|organization {
+    display:inline;
+    color:orange;
+}
+
+an|authorialNote:before {
+    content:
+        oxy_button(action,
+                oxy_action(
+                  name, '[*]', 
+                  description, 'See/hide note', 
+                  operation, 'ro.sync.ecss.extensions.commons.operations.TogglePseudoClassOperation',
+                  arg-elementLocation, '.',
+                  arg-name, '-oxy-note',
+                  arg-includeAllNodes, 'no'
+                ),
+                transparent, true
+        );
+        background-color:#AABBCC;
+}
+an|authorialNote {
+    display:inline;
+}
+an|authorialNote > * {
+    display:none;
+}
+
+an|authorialNote:-oxy-note {
+    margin:2%;
+    display:block;
+    border:1px solid gray;
+}
+an|authorialNote:-oxy-note > * {
+    display:block;
+}
+
+
+
+
+
+

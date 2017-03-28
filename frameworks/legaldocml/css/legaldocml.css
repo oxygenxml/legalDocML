@@ -1,0 +1,361 @@
+@import "table.css";
+@namespace an "http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17";
+/* Library  */
+/* Inline Hints */
+/*#FFFAD5*/
+/*#FFD34E*/
+/* placeholders */
+/* editors */
+/* Padding inside the page. */
+:root {
+  padding-top: 2em;
+  padding-right: 1em;
+  padding-left: 2em;
+  padding-bottom: 5em;
+}
+@media oxygen AND (min-width: 25cm) {
+  /* A gray background */
+  oxy|document {
+    background-color: #fbfbfb;
+  }
+  /* The white page.*/
+  :root {
+    /* White page */
+    border: 1px solid #c6c6c6;
+    background-color: white;
+    /* Centered*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.25in;
+    margin-bottom: 0.25in;
+    /* Letter */
+    width: 21.59cm;
+    min-height: 10cm;
+    /*27.94cm; would be the letter, but a smaller size avoids large caret jumps*/
+  }
+}
+an|akomaNtoso {
+  display: block;
+}
+an|* {
+  display: block;
+}
+an|p {
+  display: block;
+}
+an|meta {
+  -oxy-foldable: true;
+  -oxy-folded: true;
+  border: 1px solid gray;
+  margin: 0.5em;
+  padding: 0.25em;
+}
+an|meta:before {
+  content: "Metadata";
+  font-weight: bold;
+}
+an|coverPage {
+  -oxy-foldable: true;
+  -oxy-folded: true;
+}
+an|FRBRdate:before(100) {
+  content: oxy_substring(oxy_local-name(), 4) " = " attr(date) " (" attr(name) ")";
+}
+an|FRBRdate:after(10) {
+  visibility: hidden;
+  content: oxy_button(transparent, true, action, oxy_action(name, 'Edit', description, 'Edit', icon, url('img/edit16.png'), operation, 'ro.sync.ecss.extensions.commons.operations.ChangePseudoClassesOperation', arg-setPseudoClassNames, '-oxy-edit'), showIcon, true);
+}
+an|FRBRdate:-oxy-edit:after(10) {
+  visibility: hidden;
+  content: oxy_button(transparent, true, action, oxy_action(name, 'Done', description, 'Done', icon, url('img/done16.png'), operation, 'ro.sync.ecss.extensions.commons.operations.ChangePseudoClassesOperation', arg-removePseudoClassNames, '-oxy-edit'), showIcon, true);
+}
+an|FRBRdate:focus-within:after(10),
+an|FRBRdate:hover:after(10) {
+  visibility: visible;
+}
+an|FRBRdate:-oxy-edit:after(5) {
+  content: "\A" oxy_label(text, "  Id:", width, 20%, color, inherit) oxy_textfield(edit, '@eId', width, 70%) "\A" oxy_label(text, "  Name:", width, 20%, color, inherit) oxy_textfield(edit, '@name', width, 70%) "\A" oxy_label(text, "   Date:", width, 20%, color, inherit) oxy_datePicker(edit, '@date', format, 'yyyy-mm-dd' width, 70%);
+}
+an|FRBRthis:before(100),
+an|FRBRuri:before(100),
+an|FRBRcountry:before(100),
+an|FRBRprescriptive:before(100),
+an|FRBRauthoritative:before(100) {
+  content: oxy_substring(oxy_local-name(), 4) " = " attr(value);
+}
+an|FRBRthis:after(10),
+an|FRBRuri:after(10),
+an|FRBRcountry:after(10),
+an|FRBRprescriptive:after(10),
+an|FRBRauthoritative:after(10) {
+  visibility: hidden;
+  content: oxy_button(transparent, true, action, oxy_action(name, 'Edit', description, 'Edit', icon, url('img/edit16.png'), operation, 'ro.sync.ecss.extensions.commons.operations.ChangePseudoClassesOperation', arg-setPseudoClassNames, '-oxy-edit'), showIcon, true);
+}
+an|FRBRthis:-oxy-edit:after(10),
+an|FRBRuri:-oxy-edit:after(10),
+an|FRBRcountry:-oxy-edit:after(10),
+an|FRBRprescriptive:-oxy-edit:after(10),
+an|FRBRauthoritative:-oxy-edit:after(10) {
+  visibility: hidden;
+  content: oxy_button(transparent, true, action, oxy_action(name, 'Done', description, 'Done', icon, url('img/done16.png'), operation, 'ro.sync.ecss.extensions.commons.operations.ChangePseudoClassesOperation', arg-removePseudoClassNames, '-oxy-edit'), showIcon, true);
+}
+an|FRBRthis:focus-within:after(10),
+an|FRBRuri:focus-within:after(10),
+an|FRBRcountry:focus-within:after(10),
+an|FRBRprescriptive:focus-within:after(10),
+an|FRBRauthoritative:focus-within:after(10),
+an|FRBRthis:hover:after(10),
+an|FRBRuri:hover:after(10),
+an|FRBRcountry:hover:after(10),
+an|FRBRprescriptive:hover:after(10),
+an|FRBRauthoritative:hover:after(10) {
+  visibility: visible;
+}
+an|FRBRthis:-oxy-edit:after(5),
+an|FRBRuri:-oxy-edit:after(5),
+an|FRBRcountry:-oxy-edit:after(5),
+an|FRBRprescriptive:-oxy-edit:after(5),
+an|FRBRauthoritative:-oxy-edit:after(5) {
+  content: "\A" oxy_label(text, "  Id:", width, 20%, color, inherit) oxy_textfield(edit, '@eId', width, 70%) "\A" oxy_label(text, "  Value:", width, 20%, color, inherit) oxy_textfield(edit, '@value', width, 70%);
+}
+an|tblock {
+  position: relative;
+}
+an|tblock > an|p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+an|preface > an|container {
+  margin-left: 25%;
+}
+an|preface > an|longTitle {
+  font-weight: bold;
+  padding-left: 15%;
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 1.8em;
+  text-align: center;
+}
+an|chapter > an|num,
+an|chapter > an|heading {
+  text-align: center;
+  font-size: 2.2em;
+  margin: 0.5em;
+}
+an|article > an|num {
+  font-style: italic;
+}
+an|article > an|num,
+an|article > an|heading {
+  font-family: roman, 'times new roman', times, serif;
+  text-align: center;
+  font-size: 1.4em;
+  margin: 0.25em;
+}
+an|article {
+  position: relative;
+}
+an|article > an|paragraph {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+an|article > an|paragraph > * {
+  margin-left: 10%;
+}
+an|article > an|paragraph > an|num {
+  position: absolute;
+  width: 10%;
+  margin-left: 0;
+}
+an|mainBody > an|tblock > an|num {
+  display: block;
+  position: absolute;
+  width: 15%;
+  top: 0;
+  font-weight: bold;
+  font-size: 2.2em;
+}
+an|mainBody > an|tblock > an|num:after {
+  content: " ";
+}
+an|mainBody > an|tblock > an|heading {
+  font-weight: bold;
+  padding-left: 15%;
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 2.2em;
+}
+an|mainBody > an|tblock > an|tblock > an|num {
+  display: block;
+  position: absolute;
+  width: 15%;
+  top: 0;
+  font-weight: bold;
+  font-size: 2em;
+}
+an|mainBody > an|tblock > an|tblock > an|num:after {
+  content: " ";
+}
+an|mainBody > an|tblock > an|tblock > an|heading {
+  font-weight: bold;
+  padding-left: 15%;
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 2em;
+}
+an|mainBody > an|tblock > an|tblock > an|tblock > an|num {
+  display: block;
+  position: absolute;
+  width: 15%;
+  top: 0;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+an|mainBody > an|tblock > an|tblock > an|tblock > an|num:after {
+  content: " ";
+}
+an|mainBody > an|tblock > an|tblock > an|tblock > an|heading {
+  font-weight: bold;
+  padding-left: 15%;
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 1.8em;
+}
+an|recitals {
+  position: relative;
+}
+an|recitals > an|recital {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+an|recitals > an|recital > * {
+  margin-left: 10%;
+}
+an|recitals > an|recital > an|num {
+  position: absolute;
+  width: 10%;
+  margin-left: 0;
+}
+an|blockList {
+  position: relative;
+}
+an|blockList > an|item {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+an|blockList > an|item > * {
+  margin-left: 10%;
+}
+an|blockList > an|item > an|num {
+  position: absolute;
+  width: 10%;
+  margin-left: 0;
+}
+an|list {
+  position: relative;
+}
+an|list > an|point {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+an|list > an|point > * {
+  margin-left: 10%;
+}
+an|list > an|point > an|num {
+  position: absolute;
+  width: 10%;
+  margin-left: 0;
+}
+an|rref {
+  display: inline;
+  color: blue;
+}
+an|ref,
+an|documentRef {
+  display: inline;
+  color: blue;
+}
+an|ref:before,
+an|documentRef:before {
+  content: url(img/link.png);
+  -oxy-link: attr(href);
+}
+an|documentRef {
+  content: attr(showAs);
+}
+an|img {
+  content: attr(src, url);
+}
+an|fillIn:before {
+  content: "[";
+}
+an|fillIn {
+  display: inline;
+  color: blue;
+}
+an|fillIn:after {
+  content: "]";
+}
+an|eol {
+  display: inline;
+  content: "\A";
+}
+an|inline {
+  display: inline;
+}
+an|i {
+  display: inline;
+  font-style: italic;
+}
+an|b,
+an|location,
+an|docNumber,
+an|docketNumber {
+  display: inline;
+  font-weight: bold;
+}
+an|u {
+  display: inline;
+  text-decoration: underline;
+}
+an|date,
+an|docDate {
+  display: inline;
+  color: green;
+}
+an|term,
+an|process {
+  display: inline;
+  color: navy;
+  font-style: italic;
+}
+an|def {
+  display: inline;
+  color: green;
+}
+an|organization {
+  display: inline;
+  color: orange;
+}
+an|authorialNote:before {
+  content: oxy_button(action, oxy_action(name, '[*]', description, 'See/hide note', operation, 'ro.sync.ecss.extensions.commons.operations.TogglePseudoClassOperation', arg-elementLocation, '.', arg-name, '-oxy-note', arg-includeAllNodes, 'no'), transparent, true);
+  background-color: #AABBCC;
+}
+an|authorialNote {
+  display: inline;
+}
+an|authorialNote > * {
+  display: none;
+}
+an|authorialNote:-oxy-note {
+  margin: 2%;
+  display: block;
+  border: 1px solid gray;
+}
+an|authorialNote:-oxy-note > * {
+  display: block;
+}
