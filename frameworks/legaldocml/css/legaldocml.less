@@ -53,15 +53,33 @@ an|p {
     padding:0.25em;
 }
 
-an|meta                 {
-    .folded();
+an|meta {
+    /*.folded();*/
     .square();
     &:before {
+        display:block;
         content:"Metadata"; 
         font-weight:bold;
-    }
+    }   
 }
-an|coverPage            {.folded();}
+
+/* instead of folding...*/
+an|meta {
+    .editable();
+}
+an|meta > * {
+    display:none;
+}
+an|meta:-oxy-edit > * {
+    display:block;
+}
+/* --- */
+
+
+an|coverPage {
+    /*.folded();*/
+    display:none;
+}
 
 
 .metaDate() {

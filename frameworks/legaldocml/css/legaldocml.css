@@ -44,19 +44,39 @@ an|p {
   display: block;
 }
 an|meta {
-  -oxy-foldable: true;
-  -oxy-folded: true;
+  /*.folded();*/
   border: 1px solid gray;
   margin: 0.5em;
   padding: 0.25em;
 }
 an|meta:before {
+  display: block;
   content: "Metadata";
   font-weight: bold;
 }
+/* instead of folding...*/
+an|meta:after(10) {
+  visibility: hidden;
+  content: oxy_button(transparent, true, action, oxy_action(name, 'Edit', description, 'Edit', icon, url('img/edit16.png'), operation, 'ro.sync.ecss.extensions.commons.operations.ChangePseudoClassesOperation', arg-setPseudoClassNames, '-oxy-edit'), showIcon, true);
+}
+an|meta:-oxy-edit:after(10) {
+  visibility: hidden;
+  content: oxy_button(transparent, true, action, oxy_action(name, 'Done', description, 'Done', icon, url('img/done16.png'), operation, 'ro.sync.ecss.extensions.commons.operations.ChangePseudoClassesOperation', arg-removePseudoClassNames, '-oxy-edit'), showIcon, true);
+}
+an|meta:focus-within:after(10),
+an|meta:hover:after(10) {
+  visibility: visible;
+}
+an|meta > * {
+  display: none;
+}
+an|meta:-oxy-edit > * {
+  display: block;
+}
+/* --- */
 an|coverPage {
-  -oxy-foldable: true;
-  -oxy-folded: true;
+  /*.folded();*/
+  display: none;
 }
 an|FRBRdate:before(100) {
   content: oxy_substring(oxy_local-name(), 4) " = " attr(date) " (" attr(name) ")";
