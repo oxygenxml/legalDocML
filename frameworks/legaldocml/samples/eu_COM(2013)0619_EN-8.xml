@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="../css/legaldocml.css"?>
+<?xml-model href="../schemas/rules.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <akomaNtoso xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17 ../schemas/akomantoso30.xsd"
  xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17">
@@ -1466,7 +1467,7 @@
 						<num>CHAPTER II</num>
 						<heading eId="chp_II__heading">Free movement</heading>
 						<article eId="art_3">
-							<num>Article 3</num>
+							<num>Article 2</num>
 							<heading eId="art_3__heading">Free movement</heading>
 							<content eId="art_3__content">
 								<p>
@@ -1475,8 +1476,9 @@
                                     commercial and industrial use, as well as for <term eId="art_3__term_3" refersTo="#scientificResearchAndDevelopment">scientific research and development</term> purposes.</p>
 							</content>
 						</article>
+						<article/>
 						<article eId="art_4">
-							<num>Article 4</num>
+							<num/>
 							<heading eId="art_4__heading">Prevention of barriers to free
                                 movement</heading>
 							<alinea eId="art_4__al_1">
