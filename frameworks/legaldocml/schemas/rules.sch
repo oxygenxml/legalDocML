@@ -17,10 +17,6 @@
                 The current article number must be 'Article <sch:value-of select="$expectedNum"/>'
             </sch:assert>
             
-            <!--<sch:assert test="matches(text(), '\s*Article\s*(\d+)\s*')">
-                The format must be "Article N" where "N" is the actual article number.
-            </sch:assert>-->
-            
             <sqf:fix id="correctNumber" use-when="text()">
                 <sqf:description>
                     <sqf:title>Set the article number to 'Article <sch:value-of select="$expectedNum"/>'</sqf:title>
@@ -37,7 +33,8 @@
                 <sqf:description>
                     <sqf:title>Correct all article numbers for the current bill.</sqf:title>
                 </sqf:description>
-                <sqf:replace match="(preceding::leg:article/leg:num, ., following::leg:article/leg:num)[generate-id(ancestor::leg:bill) eq $billID]/text()" 
+                <sqf:replace match="(preceding::leg:article/leg:num, ., following::leg:article/leg:num)[generate-id(ancestor::leg:bill) eq $billID]/text()
+                    [.!=concat('Article ', count(preceding::leg:article[generate-id(ancestor::leg:bill) eq $billID]/leg:num) + 1)]" 
                     select="concat('Article ', count(preceding::leg:article[generate-id(ancestor::leg:bill) eq $billID]/leg:num) + 1)"/>
                 <sqf:add match="(preceding::leg:article/leg:num, ., following::leg:article/leg:num)[generate-id(ancestor::leg:bill) eq $billID][not(node())]" 
                     select="concat('Article ', count(preceding::leg:article[generate-id(ancestor::leg:bill) eq $billID]/leg:num) + 1)"/>
