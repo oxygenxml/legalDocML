@@ -13,13 +13,14 @@
             <sch:let name="expectedNum" value="count(preceding::leg:article[generate-id(ancestor::leg:bill) eq $billID]/leg:num) + 1"/>
             <sch:let name="num" value="osf:getArticleNumber(.)"/>
             
+            <sch:assert test="$num = $expectedNum" sqf:fix="correctNumber addNumber correctOrAddAll">
+                The current article number must be 'Article <sch:value-of select="$expectedNum"/>'
+            </sch:assert>
+            
             <sch:assert test="matches(text(), '\s*Article\s*(\d+)\s*')">
                 The format must be "Article N" where "N" is the actual article number.
             </sch:assert>
             
-            <sch:assert test="$num = $expectedNum" sqf:fix="correctNumber addNumber correctOrAddAll">
-                The current article number must be 'Article <sch:value-of select="$expectedNum"/>'
-            </sch:assert>
             <sqf:fix id="correctNumber" use-when="text()">
                 <sqf:description>
                     <sqf:title>Set the article number to 'Article <sch:value-of select="$expectedNum"/>'</sqf:title>
