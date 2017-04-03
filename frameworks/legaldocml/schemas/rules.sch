@@ -17,9 +17,9 @@
                 The current article number must be 'Article <sch:value-of select="$expectedNum"/>'
             </sch:assert>
             
-            <sch:assert test="matches(text(), '\s*Article\s*(\d+)\s*')">
+            <!--<sch:assert test="matches(text(), '\s*Article\s*(\d+)\s*')">
                 The format must be "Article N" where "N" is the actual article number.
-            </sch:assert>
+            </sch:assert>-->
             
             <sqf:fix id="correctNumber" use-when="text()">
                 <sqf:description>
