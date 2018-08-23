@@ -17,6 +17,7 @@
     }
     & {
         display:block;
+        -oxy-display-tags: none;
         position:absolute;
         width:15%;
         top:0;
@@ -74,18 +75,21 @@
 
 .defineList(@item, @num:num, @listNumP:10%, @prefix:an) {
     &{
+        -oxy-display-tags: none;
         position:relative;   
     }   
     & > @{prefix}|@{item} {
         margin-top:0.5em;
         margin-bottom:0.5em;
+        -oxy-display-tags: none;
     }
     & > @{prefix}|@{item} > * {
         margin-left:@listNumP;
     }
     & > @{prefix}|@{item}  > @{prefix}|@{num} {
         position:absolute;
-        width:@listNumP;
+        -oxy-display-tags: none;
+        max-width:@listNumP;
         margin-left:0;    
     }
 }

@@ -181,13 +181,14 @@ an|article {
 an|article > an|paragraph {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  -oxy-display-tags: none;
 }
 an|article > an|paragraph > * {
   margin-left: 10%;
 }
 an|article > an|paragraph > an|num {
-  -oxy-display-tags: none;
   position: absolute;
+  -oxy-display-tags: none;
   max-width: 10%;
   margin-left: 0;
 }
@@ -211,6 +212,9 @@ an|mainBody > an|tblock > an|heading {
   margin-bottom: 0.5em;
   font-size: 2.2em;
 }
+an|mainBody {
+  -oxy-display-tags: none;
+}
 an|mainBody > an|tblock > an|tblock > an|num {
   display: block;
   -oxy-display-tags: none;
@@ -219,9 +223,6 @@ an|mainBody > an|tblock > an|tblock > an|num {
   top: 0;
   font-weight: bold;
   font-size: 2em;
-}
-an|mainBody {
-  -oxy-display-tags: none;
 }
 an|mainBody > an|tblock > an|tblock > an|num:after {
   content: " ";
@@ -261,6 +262,7 @@ an|recitals {
 an|recitals > an|recital {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  -oxy-display-tags: none;
 }
 an|recitals > an|recital > * {
   margin-left: 10%;
@@ -296,6 +298,7 @@ an|list {
 an|list > an|point {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  -oxy-display-tags: none;
 }
 an|list > an|point > * {
   margin-left: 10%;
@@ -394,4 +397,7 @@ an|authorialNote:-oxy-note {
 }
 an|authorialNote:-oxy-note > * {
   display: block;
+}
+an|img:after(1) {
+  content: oxy_button(transparent, true, action, oxy_action(name, 'Edit', description, 'Edit', icon, url('img/edit16.png'), operation, 'ro.sync.ecss.extensions.commons.operations.InsertOrReplaceFragmentOperation', arg-insertPosition, 'Replace', arg-fragment, '<img xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17" src="${ask(\'Image URL\', relative_url, \'\')}" alt="${ask(\'Alternate Text\', text, \'\')}" />'), showIcon, true);
 }

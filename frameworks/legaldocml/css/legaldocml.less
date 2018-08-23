@@ -127,6 +127,7 @@ an|FRBRauthoritative{
 
 
 an|tblock {
+    -oxy-display-tags: none;
     position:relative;    
 } 
 an|tblock > an|p {
@@ -142,7 +143,6 @@ an|preface > an|longTitle {
     .heading3();
     text-align:center;
 }
-
 an|chapter > an|num,
 an|chapter > an|heading{
     text-align:center;
@@ -161,7 +161,10 @@ an|article > an|heading{
     margin:0.25em;
 }
 
-an|article {.defineList(paragraph);}
+an|article {
+        -oxy-display-tags: none;
+    .defineList(paragraph);
+}
 
 an|mainBody > an|tblock > an|num {
     .heading1Nr();
@@ -169,7 +172,9 @@ an|mainBody > an|tblock > an|num {
 an|mainBody > an|tblock > an|heading{
     .heading1();  
 } 
-
+an|mainBody {
+  -oxy-display-tags: none;
+}
 an|mainBody > an|tblock > an|tblock > an|num {
     .heading2Nr();
     
@@ -304,7 +309,17 @@ an|authorialNote:-oxy-note > * {
     display:block;
 }
 
-
+an|img:after(1) {
+    content: 
+        oxy_button(transparent, true, action, oxy_action(
+              name, 'Edit', 
+              description, 'Edit', 
+              icon, url('img/edit16.png'), 
+              operation, 'ro.sync.ecss.extensions.commons.operations.InsertOrReplaceFragmentOperation', 
+              arg-insertPosition, 'Replace',
+              arg-fragment, '<img xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17" src="${ask(\'Image URL\', relative_url, \'\')}" alt="${ask(\'Alternate Text\', text, \'\')}" />'
+            ), showIcon, true);
+}
 
 
 
