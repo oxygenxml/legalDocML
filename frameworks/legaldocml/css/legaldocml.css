@@ -187,7 +187,8 @@ an|article > an|paragraph > * {
   margin-left: 10%;
 }
 an|article > an|paragraph > an|num {
-  position: absolute;
+  position: relative;
+  top: 20px;
   -oxy-display-tags: none;
   max-width: 10%;
   margin-left: 0;
@@ -268,7 +269,8 @@ an|recitals > an|recital > * {
   margin-left: 10%;
 }
 an|recitals > an|recital > an|num {
-  position: absolute;
+  position: relative;
+  top: 20px;
   -oxy-display-tags: none;
   max-width: 10%;
   margin-left: 0;
@@ -286,7 +288,8 @@ an|blockList > an|item > * {
   margin-left: 10%;
 }
 an|blockList > an|item > an|num {
-  position: absolute;
+  position: relative;
+  top: 20px;
   -oxy-display-tags: none;
   max-width: 10%;
   margin-left: 0;
@@ -304,7 +307,8 @@ an|list > an|point > * {
   margin-left: 10%;
 }
 an|list > an|point > an|num {
-  position: absolute;
+  position: relative;
+  top: 20px;
   -oxy-display-tags: none;
   max-width: 10%;
   margin-left: 0;
