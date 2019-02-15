@@ -168,6 +168,9 @@ an|article {
 
 an|mainBody > an|tblock > an|num {
     .heading1Nr();
+    & + :not(heading){
+        padding-left: 7%;
+    }
 }
 an|mainBody > an|tblock > an|heading{
     .heading1();  
@@ -177,6 +180,9 @@ an|mainBody {
 }
 an|mainBody > an|tblock > an|tblock > an|num {
     .heading2Nr();
+    & + :not(heading){
+        padding-left: 7%;
+    }
     
 }
 an|mainBody > an|tblock > an|tblock > an|heading{
@@ -185,6 +191,9 @@ an|mainBody > an|tblock > an|tblock > an|heading{
 
 an|mainBody > an|tblock > an|tblock > an|tblock > an|num {
     .heading3Nr();
+    & + :not(heading){
+        padding-left: 7%;
+    }
 }
 an|mainBody > an|tblock > an|tblock > an|tblock > an|heading{
     .heading3(); 

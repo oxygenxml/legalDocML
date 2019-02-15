@@ -205,6 +205,9 @@ an|mainBody > an|tblock > an|num {
 an|mainBody > an|tblock > an|num:after {
   content: " ";
 }
+an|mainBody > an|tblock > an|num + :not(heading) {
+  padding-left: 7%;
+}
 an|mainBody > an|tblock > an|heading {
   font-weight: bold;
   padding-left: 15%;
@@ -228,6 +231,9 @@ an|mainBody > an|tblock > an|tblock > an|num {
 an|mainBody > an|tblock > an|tblock > an|num:after {
   content: " ";
 }
+an|mainBody > an|tblock > an|tblock > an|num + :not(heading) {
+  padding-left: 7%;
+}
 an|mainBody > an|tblock > an|tblock > an|heading {
   font-weight: bold;
   padding-left: 15%;
@@ -247,6 +253,9 @@ an|mainBody > an|tblock > an|tblock > an|tblock > an|num {
 }
 an|mainBody > an|tblock > an|tblock > an|tblock > an|num:after {
   content: " ";
+}
+an|mainBody > an|tblock > an|tblock > an|tblock > an|num + :not(heading) {
+  padding-left: 7%;
 }
 an|mainBody > an|tblock > an|tblock > an|tblock > an|heading {
   font-weight: bold;
