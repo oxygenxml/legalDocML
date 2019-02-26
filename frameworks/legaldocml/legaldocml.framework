@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="21.0" xml:space="preserve">
+<serialized version="21.1" xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
@@ -36,19 +36,30 @@
 											<String>${framework}/css/legaldocml.css</String>
 										</field>
 										<field name="title">
-											<String></String>
+											<String>Basic</String>
 										</field>
 										<field name="alternate">
 											<Boolean>false</Boolean>
 										</field>
 									</cssFile>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/css/large-docs.css</String>
+										</field>
+										<field name="title">
+											<String>+ Large Document Mode</String>
+										</field>
+										<field name="alternate">
+											<Boolean>true</Boolean>
+										</field>
+									</cssFile>
 								</cssFile-array>
 							</field>
 							<field name="mergeCSSsFromDocument">
-								<Boolean>false</Boolean>
+								<Boolean>true</Boolean>
 							</field>
 							<field name="multipleAlternateSelectionEnabled">
-								<Boolean>false</Boolean>
+								<Boolean>true</Boolean>
 							</field>
 							<field name="actionDescriptors">
 								<action-array>
