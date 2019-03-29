@@ -22,7 +22,10 @@
 						</docTypeSchema>
 					</field>
 					<field name="classpath">
-						<String-array/>
+						<String-array>
+							<String>${framework}/target/classes/</String>
+							<String>${framework}/legaldocml.jar</String>
+						</String-array>
 					</field>
 					<field name="parentClassLoaderID">
 						<null/>
@@ -268,13 +271,13 @@
 						<null/>
 					</field>
 					<field name="extensionsBundleClassName">
-						<null/>
+						<String>com.oxygenxml.samples.legaldocml.LegalDocMLExtensionsBundle</String>
 					</field>
 					<field name="useImposedInitialPage">
-						<Boolean>false</Boolean>
+						<Boolean>true</Boolean>
 					</field>
 					<field name="imposedInitialPage">
-						<String>Text</String>
+						<String>Author</String>
 					</field>
 					<field name="elementLocatorExtension">
 						<null/>
