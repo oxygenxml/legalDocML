@@ -23,8 +23,10 @@
 					</field>
 					<field name="classpath">
 						<String-array>
-							<String>${framework}/target/classes/</String>
+							<String>C:\Users\intern\Desktop\framework-extensions\legaldocml\xhtml.jar</String>
 							<String>${framework}/legaldocml.jar</String>
+							<String>${framework}/target/classes/</String>
+							<String>${framework}/i18n/translation.xml</String>
 						</String-array>
 					</field>
 					<field name="parentClassLoaderID">
@@ -54,6 +56,28 @@
 										</field>
 										<field name="alternate">
 											<Boolean>true</Boolean>
+										</field>
+									</cssFile>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/css/table.less</String>
+										</field>
+										<field name="title">
+											<String></String>
+										</field>
+										<field name="alternate">
+											<Boolean>false</Boolean>
+										</field>
+									</cssFile>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/css/html_cals_table.css</String>
+										</field>
+										<field name="title">
+											<String></String>
+										</field>
+										<field name="alternate">
+											<Boolean>false</Boolean>
 										</field>
 									</cssFile>
 								</cssFile-array>
@@ -99,6 +123,392 @@
 															<entry>
 																<String>fragment</String>
 																<String>&lt;img xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17" src="${ask('Image URL', relative_url, '')}" alt="${ask('Alternate Text', text, '')}" /></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>insert.table.row.below</String>
+										</field>
+										<field name="name">
+											<String>${i18n(insert.table.row.below)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(insert.table.row.below_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/TableRow24.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/TableRow16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::*:thead</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>namespace</String>
+																<String>http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.table.operations.xhtml.InsertSingleRowOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::*:tbody | self::*:tfoot</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>header row</String>
+																<String>no</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String>http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.table.operations.xhtml.InsertSingleRowOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:tr[1][parent::*:thead]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::*:tr[1][parent::*:thead]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String>http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.table.operations.xhtml.InsertSingleRowOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:tr</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>header row</String>
+																<String>no</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::*:tr[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String>http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.table.operations.xhtml.InsertSingleRowOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>insert.table.column.after</String>
+										</field>
+										<field name="name">
+											<String>${i18n(insert.table.column.after)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(insert.table.column.after_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/TableColumn24.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/TableColumn16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:tr</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>namespace</String>
+																<String>http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.table.operations.xhtml.InsertSingleColumnOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>delete.table.column</String>
+										</field>
+										<field name="name">
+											<String>${i18n(delete.table.columns)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(delete.table.columns_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/DeleteColumn24.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/DeleteColumn16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>(ancestor-or-self::*:th |
+ancestor-or-self::*:tr | ancestor-or-self::*:td)
+or oxy:current-selected-element()[(ancestor-or-self::*:th |
+ancestor-or-self::*:tr | ancestor-or-self::*:td)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap/>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.table.operations.xhtml.DeleteColumnOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>delete.table.row</String>
+										</field>
+										<field name="name">
+											<String>${i18n(delete.table.rows)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(delete.table.rows_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/DeleteRow24.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/DeleteRow16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>(ancestor-or-self::*:tr  |
+ancestor-or-self::*:tbody) 
+or oxy:current-selected-element()[(ancestor-or-self::*:tr  |
+ancestor-or-self::*:tbody)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap/>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.table.operations.xhtml.DeleteRowOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>table.join</String>
+										</field>
+										<field name="name">
+											<String>${i18n(table.join)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(table.join_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/TableJoin24.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/TableJoin16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:table</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap/>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.table.operations.xhtml.JoinOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>table.split</String>
+										</field>
+										<field name="name">
+											<String>${i18n(table.split)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(table.split_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/TableSplitCell24.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/TableSplitCell16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:td or ancestor-or-self::*:th or
+oxy:current-selected-element()[ancestor-or-self::*:td] or 
+oxy:current-selected-element()[ancestor-or-self::*:th]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap/>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.table.operations.xhtml.SplitOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>insert.table</String>
+										</field>
+										<field name="name">
+											<String>${i18n(insert.table)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(insert.table_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/Table24.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/Table16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>*</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -170,7 +580,37 @@
 										<toolbarEntry-array>
 											<toolbarItem>
 												<field name="actionID">
-													<String>imsert.image</String>
+													<String>insert.table</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>insert.table.row.below</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>insert.table.column.after</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>delete.table.row</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>delete.table.column</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>table.join</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>table.split</String>
 												</field>
 											</toolbarItem>
 										</toolbarEntry-array>
