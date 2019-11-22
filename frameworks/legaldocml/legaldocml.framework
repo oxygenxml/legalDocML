@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="21.1" xml:space="preserve">
+<serialized version="22.0" xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
@@ -23,7 +23,7 @@
 					</field>
 					<field name="classpath">
 						<String-array>
-							<String>C:\Users\intern\Desktop\framework-extensions\legaldocml\xhtml.jar</String>
+							<String>${framework}/xhtml.jar</String>
 							<String>${framework}/legaldocml.jar</String>
 							<String>${framework}/target/classes/</String>
 							<String>${framework}/i18n/translation.xml</String>
@@ -504,7 +504,7 @@ oxy:current-selected-element()[ancestor-or-self::*:th]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String></String>
+																<String>&lt;table xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0/WD17">&lt;caption>${caret}&lt;/caption>&lt;tr>&lt;td>&lt;p>&lt;/p>&lt;/td>&lt;/tr>&lt;tr>&lt;td>&lt;p>&lt;/p>&lt;/td>&lt;/tr>&lt;/table></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
