@@ -1,45 +1,23 @@
-sync.table.HtmlExtension = sync.table.HtmlExtension || {};
+AkomaNtosoExtension = window.AkomaNtosoExtension || {};
 
 /**
  * Constructor for the Extension.
  *
  * @constructor
  */
-sync.table.HtmlExtension.Extension = function(){
+AkomaNtosoExtension.Extension = function(){
   sync.ext.Extension.call(this);
 };
-goog.inherits(sync.table.HtmlExtension.Extension, sync.ext.Extension);
+goog.inherits(AkomaNtosoExtension.Extension, sync.ext.Extension);
 
 /**
  * Editor created callback.
  *
  * @param {sync.Editor} editor The currently created editor.
  */
-sync.table.HtmlExtension.Extension.prototype.editorCreated = function(editor) {
+AkomaNtosoExtension.Extension.prototype.editorCreated = function(editor) {
   goog.events.listen(editor, sync.api.Editor.EventTypes.ACTIONS_LOADED, function(e) {
-
     var actionsManager = editor.getActionsManager();
-
-    // Wrap the Insert Web Link action.
-    var insertWebLinkActionId = 'a.href';
-    var originalInsertWebLinkAction = actionsManager.getActionById(insertWebLinkActionId);
-    if(originalInsertWebLinkAction) {
-      var insertWebLinkAction = new sync.actions.InsertWebLink(
-        originalInsertWebLinkAction,
-        'ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation',
-        editor,
-        'fragment-url');
-      // override the get params method to inject the fragment with the input value.
-      insertWebLinkAction.getParams = function() {
-        var params = sync.actions.InsertWebLink.prototype.getParams.call(this);
-        return {
-          fragment: '<a href="' + params['fragment-url'] + '" xmlns="http://www.w3.org/1999/xhtml">' +
-            params['fragment-url'] +
-            '</a>'
-        }
-      };
-      actionsManager.registerAction(insertWebLinkActionId, insertWebLinkAction);
-    }
 
     var originalInsertTableAction = actionsManager.getActionById('insert.table');
     if (originalInsertTableAction) {
@@ -151,11 +129,11 @@ function isFrameworkActions(actionsConfiguration) {
 }
 
 // Publish the extension.
-sync.ext.Registry.extension = new sync.table.HtmlExtension.Extension();
+sync.ext.Registry.extension = new AkomaNtosoExtension.Extension();
 
-sync.actions.AkomanNtosoInsertTable = function(a, b, c, d, e, f, g) {
-  sync.actions.InsertTable.call(this, a, b, c, d, e, f, g);
-  this.editor = c;
+sync.actions.AkomanNtosoInsertTable = function(delegate, tableOpClassName, editor) {
+  sync.actions.InsertTable.apply(this, arguments);
+  this.editor = editor;
 };
 goog.inherits(sync.actions.AkomanNtosoInsertTable, sync.actions.InsertTable);
 
