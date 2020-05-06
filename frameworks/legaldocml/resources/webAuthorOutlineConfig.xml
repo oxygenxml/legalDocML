@@ -5,7 +5,7 @@
   <tocMode editable="yes" default="yes">
     <elements names="title subtitle longTitle shortTitle chapter subchapter tblock heading"/>
     <titleLocator element="longTitle" location="p"/>
-    <titleLocator element="tblock" location="heading"/>
-    <titleLocator element="chapter" location="heading"/>
+    <titleLocator element="tblock" location="num, heading"/>
+    <titleLocator element="chapter" location="num, heading"/>
   </tocMode> 
 </outline>
