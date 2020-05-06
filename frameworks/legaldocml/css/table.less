@@ -1,0 +1,33 @@
+
+colgroup{
+    display:none;
+}
+
+table-wrap {
+    & p{
+        margin:0!important;
+    }
+}
+
+caption {
+    display: table-header-group;
+}
+article table > caption{
+    display: table-caption;
+}
+
+caption p{ 
+        margin-top:0!important;
+        margin-bottom:0!important;
+        margin-left:50%!important;
+    }
+
+td{
+    border-left:thin;
+    border-left-color:rgba(238, 238, 238, 1.0);
+    border-left-width: 2px !important;
+}
+
+col:before{
+    content:"" !important;
+}
