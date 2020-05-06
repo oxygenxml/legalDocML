@@ -25,6 +25,7 @@
 						<String-array>
 							<String>${framework}/target/classes/</String>
 							<String>${framework}/legaldocml.jar</String>
+							<String>${framework}/resources/</String>
 						</String-array>
 					</field>
 					<field name="parentClassLoaderID">
