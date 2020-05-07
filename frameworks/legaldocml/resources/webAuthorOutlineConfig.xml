@@ -3,7 +3,7 @@
     <preferredAttributes names="id xml:id"/> 
   </structureMode> 
   <tocMode editable="yes" default="yes">
-    <elements names="title subtitle longTitle shortTitle chapter subchapter tblock heading"/>
+    <elements names="title subtitle longTitle shortTitle chapter subchapter tblock"/>
     <titleLocator element="longTitle" location="p"/>
     <titleLocator element="tblock" location="heading"/>
     <titleLocator element="chapter" location="heading"/>
