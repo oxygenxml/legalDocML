@@ -5,5 +5,5 @@ chapter,
 book {
     -oxy-foldable: true;
       -oxy-folded: true;
-    -oxy-not-foldable-child: heading, num;
+    -oxy-not-foldable-child: heading;
 }
