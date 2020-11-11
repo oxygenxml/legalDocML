@@ -54,6 +54,11 @@ an|meta:before {
   content: "Metadata";
   font-weight: bold;
 }
+@media print {
+  an|meta {
+    display: none;
+  }
+}
 /* instead of folding...*/
 an|meta:after(10) {
   visibility: hidden;
@@ -74,6 +79,9 @@ an|meta:-oxy-edit > * {
   display: block;
 }
 /* --- */
+an|components an|component {
+  page-break-before: always;
+}
 an|coverPage {
   /*.folded();*/
   display: none;
