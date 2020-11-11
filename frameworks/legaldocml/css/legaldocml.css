@@ -34,6 +34,14 @@
     /*27.94cm; would be the letter, but a smaller size avoids large caret jumps*/
   }
 }
+@media print {
+  an|meta {
+    display: none;
+  }
+  an|components an|component {
+    page-break-before: always;
+  }
+}
 an|akomaNtoso {
   display: block;
 }
