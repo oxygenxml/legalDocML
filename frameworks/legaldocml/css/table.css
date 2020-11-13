@@ -5,6 +5,15 @@
 ==============================================
 */
 
+@media print {
+  th[colspan], td[colspan] {
+    table-column-span: attr(colspan, integer);
+  }
+  th[rowspan], td[rowspan] {
+    table-row-span: attr(rowspan, integer);
+  }
+}
+
 /*
     The caption of the table.
 */
