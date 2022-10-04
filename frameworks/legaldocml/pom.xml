@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.oxygenxml</groupId>
   <artifactId>legaldocml-framework</artifactId>
-  <version>25.0-SNAPSHOT</version>
+  <version>25.1-SNAPSHOT</version>
 
   <developers>
     <developer>
